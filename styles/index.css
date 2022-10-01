@@ -6,9 +6,32 @@
   font-size: 16px;
 }
 
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  * {
+    font-size: 10px;
+  }
+}
+
 * a {
   text-decoration: none;
   font-family: 'Bebas Neue', sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  overflow-x: hidden;
 }
 
 .nav-wrapper {
@@ -56,6 +79,43 @@
   font-weight: 100;
 }
 
+.nav-wrapper nav .hamburger {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  z-index: 110;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .5rem;
+  cursor: pointer;
+}
+
+.nav-wrapper nav .hamburger .line {
+  width: 100%;
+  height: .25rem;
+  background-color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-wrapper nav .hamburger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.nav-wrapper nav .hamburger.show .line {
+  background-color: black;
+}
+
 .nav-wrapper nav .menu {
   list-style: none;
   display: -webkit-box;
@@ -64,9 +124,81 @@
   gap: 2rem;
 }
 
+@media screen and (max-width: 1024px) {
+  .nav-wrapper nav .menu {
+    display: none;
+  }
+}
+
 .nav-wrapper nav .menu a {
   color: white;
   font-size: 1.3rem;
+}
+
+.nav-wrapper nav .small-menu-area {
+  position: absolute;
+  width: 15rem;
+  height: 100vh;
+  display: none;
+  padding-top: 3rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background-color: white;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-wrapper nav .small-menu-area {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-wrapper nav .small-menu-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.nav-wrapper nav .small-menu-area.show {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.nav-wrapper nav .small-menu-area ul {
+  padding: 2rem 1rem 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .5rem;
+  list-style: none;
+}
+
+.nav-wrapper nav .small-menu-area ul li a {
+  padding: .25rem;
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  color: black;
+  border-radius: .25rem;
+}
+
+.nav-wrapper nav .small-menu-area ul li a:hover {
+  background-color: #E09400;
 }
 
 .nav-wrapper nav .profile-area {
@@ -74,6 +206,12 @@
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-wrapper nav .profile-area {
+    display: none;
+  }
 }
 
 .nav-wrapper nav .profile-area a {
@@ -162,6 +300,8 @@
 }
 
 main {
+  position: relative;
+  z-index: 10;
   padding: 2rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,11 +399,17 @@ main .highlighted-items .item .hover {
 main .highlighted-items .item h3 {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 2vw;
   width: 60%;
   margin: 0 auto;
   text-align: center;
   border-bottom: 1px solid gray;
+}
+
+@media screen and (max-width: 768px) {
+  main .highlighted-items .item h3 {
+    font-size: 1.2rem;
+  }
 }
 
 main .highlighted-items .item p {
@@ -272,20 +418,37 @@ main .highlighted-items .item p {
   height: max-content;
   overflow: hidden;
   padding: 0rem 2rem;
-  font-size: 1.3rem;
+  font-size: 1.4vw;
   font-family: 'Atkinson Hyperlegible', sans-serif;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   max-height: 0;
 }
 
-main .highlighted-items .item:hover .hover {
-  background-color: rgba(224, 148, 0, 0.6);
+@media screen and (max-width: 768px) {
+  main .highlighted-items .item p {
+    font-size: .9rem;
+  }
 }
 
-main .highlighted-items .item:hover p {
-  max-height: 400px;
-  padding: 1rem 2rem;
+@media screen and (min-width: 1024px) {
+  main .highlighted-items .item:hover .hover {
+    background-color: rgba(224, 148, 0, 0.6);
+  }
+  main .highlighted-items .item:hover p {
+    max-height: 400px;
+    padding: .5rem 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main .highlighted-items .item .hover {
+    background-color: rgba(224, 148, 0, 0.6);
+  }
+  main .highlighted-items .item p {
+    max-height: 400px;
+    padding: .5rem 2rem;
+  }
 }
 
 main .popular-items {
@@ -293,6 +456,7 @@ main .popular-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 2rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -314,6 +478,12 @@ main .popular-items .item {
   cursor: pointer;
   -webkit-transition: all 300ms;
   transition: all 300ms;
+}
+
+@media screen and (max-width: 1280px) {
+  main .popular-items .item {
+    aspect-ratio: auto;
+  }
 }
 
 main .popular-items .item .content {
@@ -339,24 +509,48 @@ main .popular-items .item .content img.down {
      object-position: center 20%;
 }
 
+@media screen and (max-width: 768px) {
+  main .popular-items .item .content img {
+    height: 50%;
+  }
+}
+
 main .popular-items .item .content h3 {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 2vw;
+}
+
+@media screen and (max-width: 768px) {
+  main .popular-items .item .content h3 {
+    font-size: 1.4rem;
+  }
 }
 
 main .popular-items .item .content .brand {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 100;
-  font-size: 1.1rem;
+  font-size: 1.6vw;
+}
+
+@media screen and (max-width: 768px) {
+  main .popular-items .item .content .brand {
+    font-size: .9rem;
+  }
 }
 
 main .popular-items .item .content .price {
   font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-weight: 100;
   position: absolute;
   bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  main .popular-items .item .content .price {
+    font-size: 1.1rem;
+  }
 }
 
 main .popular-items .item:hover {
