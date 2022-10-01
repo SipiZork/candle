@@ -337,8 +337,18 @@ main .highlighted-items {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  main .highlighted-items {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+  }
+}
+
 main .highlighted-items .item {
   min-width: 31%;
+  border: 1px solid red;
   aspect-ratio: 1 / 1;
   max-width: 31.25rem;
   position: relative;
@@ -408,7 +418,7 @@ main .highlighted-items .item h3 {
 
 @media screen and (max-width: 768px) {
   main .highlighted-items .item h3 {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 }
 
@@ -427,7 +437,7 @@ main .highlighted-items .item p {
 
 @media screen and (max-width: 768px) {
   main .highlighted-items .item p {
-    font-size: .9rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -462,9 +472,17 @@ main .popular-items {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  main .popular-items {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+  }
+}
+
 main .popular-items .item {
   min-width: 31%;
-  aspect-ratio: 1 / 1;
   max-width: 31.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -478,12 +496,6 @@ main .popular-items .item {
   cursor: pointer;
   -webkit-transition: all 300ms;
   transition: all 300ms;
-}
-
-@media screen and (max-width: 1280px) {
-  main .popular-items .item {
-    aspect-ratio: auto;
-  }
 }
 
 main .popular-items .item .content {
@@ -509,12 +521,6 @@ main .popular-items .item .content img.down {
      object-position: center 20%;
 }
 
-@media screen and (max-width: 768px) {
-  main .popular-items .item .content img {
-    height: 50%;
-  }
-}
-
 main .popular-items .item .content h3 {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 100;
@@ -523,7 +529,7 @@ main .popular-items .item .content h3 {
 
 @media screen and (max-width: 768px) {
   main .popular-items .item .content h3 {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 }
 
@@ -535,7 +541,7 @@ main .popular-items .item .content .brand {
 
 @media screen and (max-width: 768px) {
   main .popular-items .item .content .brand {
-    font-size: .9rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -549,7 +555,7 @@ main .popular-items .item .content .price {
 
 @media screen and (max-width: 768px) {
   main .popular-items .item .content .price {
-    font-size: 1.1rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -561,7 +567,10 @@ main .popular-items .item:hover {
 .comments {
   width: 100%;
   margin-top: 3rem;
-  height: 20rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 2rem 0;
   background-image: url("../imgs/commentbg.jpg");
   background-size: cover;
   background-position: center 60%;
@@ -569,6 +578,7 @@ main .popular-items .item:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 2rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -592,8 +602,7 @@ main .popular-items .item:hover {
 }
 
 .comments .comment {
-  margin-top: 2rem;
-  width: 50rem;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
